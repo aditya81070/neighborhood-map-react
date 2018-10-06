@@ -82,9 +82,16 @@
   opacity: 0.8;
 }
 
-.nav {
-  text-align: left;
-}
-#menu-icon {
-  display: none;
+@media screen and (max-width: 420px) {
+  .sidebar {
+    width: 300px;
+  }
+
+  #seach-field {
+    height: 20px;
+    font-size: 1em;
+  }
+  .location-item {
+    padding: 3px 0 3px 1px;
+  }
 }
