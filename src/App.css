@@ -82,6 +82,15 @@
   opacity: 0.8;
 }
 
+.marker-info {
+  padding: 2px;
+  text-align: center;
+}
+
+.marker-info h2, .marker-info p {
+  padding: 2px 0px 2px 0px;
+}
+
 @media screen and (max-width: 420px) {
   .sidebar {
     width: 300px;
