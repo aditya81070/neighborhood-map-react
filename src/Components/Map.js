@@ -113,7 +113,6 @@ class Map extends Component {
         }
         response.json().then(({ response }) => {
         const { venue } = response
-        console.log(venue)
         self.state.infoWindow.setContent(`<div class='marker-info'>
         <h2>${venue.name}</h2>
         <p><strong>Verified Location: </strong>${venue.verified ? 'Yes' : 'No'}</p>
@@ -155,11 +154,20 @@ class Map extends Component {
       this.openInfoWindow(marker)
       this.getMarkerInfo(location)
     })
+
+    marker.addListener('mouseover', () => {
+      marker.setAnimation(window.google.maps.Animation.BOUNCE)
+    })
+
+    marker.addListener('mouseout', () => {
+      marker.setAnimation(null)
+    })
+
     })
     
     this.setState({ locations })
   }
-  
+
   loadMap () {
     if (this.props && this.props.google) {
       const map = new window.google.maps.Map(document.querySelector('#map'), {
