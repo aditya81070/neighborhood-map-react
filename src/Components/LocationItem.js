@@ -6,6 +6,10 @@ function LocationItem (props) {
       onClick={() => {
         props.openInfoWindow(props.data.marker)
         props.getMarkerInfo(props.data)
+      }}
+      onKeyPress={() => {
+        props.openInfoWindow(props.data.marker)
+        props.getMarkerInfo(props.data)
       }}>
       {props.data.longName}
     </li>
