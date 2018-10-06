@@ -43,8 +43,9 @@ class LocationList extends Component {
       <div className='sidebar'>
         <input type='text' role='search' aria-labelledby='filter' id='search-field'
           value={this.state.query}
+          placeholder='Search for place'
           onChange={(e) => (this.filterLocation(e.target.value))} />
-          <ul>
+          <ul className='location-list'>
             { this.state.suggestions && locationlist }
           </ul>
         <button className='button' onClick={() => (this.toggleSuggestions())}>Show/Hide Suggestions</button>
