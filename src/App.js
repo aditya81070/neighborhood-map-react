@@ -9,15 +9,17 @@ function App (props) {
       <header className='App-header'>
         <h1 className='App-title'>Welcome to Neighborhood Map</h1>
       </header>
-      {
-        props.loaded ? (
-          <Map google={props.google} />
-        ) : (
-          <div className='error-loading'>
-            <p className='error-msg'>Couldn't load Google maps</p>
-          </div>
-        )
-      }
+      <main role='main'>
+        {
+          props.loaded ? (
+            <Map google={props.google} />
+          ) : (
+            <div className='error-loading'>
+              <p className='error-msg'>Couldn't load Google maps</p>
+            </div>
+          )
+        }
+      </main>
     </div>
   )
 }

@@ -41,6 +41,7 @@ class LocationList extends Component {
       getMarkerInfo={this.props.getMarkerInfo}/>))
     return (
       <div className='sidebar'>
+        <label htmlFor='search-field' className='label-hidden'>filter locations</label>
         <input type='text' role='search' aria-labelledby='filter' id='search-field'
           value={this.state.query}
           placeholder='Search for place'
