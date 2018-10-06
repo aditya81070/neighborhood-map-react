@@ -100,6 +100,34 @@ class Map extends Component {
     this.state.map.setCenter(marker.getPosition())
   }
 
+  getMarkerInfo (location) {
+    const self = this
+    const clientId = 'IVR2BCQPW0NBT0Y3L30KFVMAI0EH4Z5TT3AUHQT0P2LPRKI1'
+    const clientSecret = 'OSFARAATAMYFPG5CKJSTDECNGXKHMXUQ0IML2NHPRFOWHPJD'
+    const url = `https://api.foursquare.com/v2/venues/${location.venueId}?client_id=${clientId}&client_secret=${clientSecret}&v=20181006`
+    fetch (url)
+      .then((response) => {
+        if (response.status !== 200) {
+          self.state.infoWindow.setContent('Sorry data cannot be loaded :(')
+          return
+        }
+        response.json().then(({ response }) => {
+        const { venue } = response
+        console.log(venue)
+        self.state.infoWindow.setContent(`<div class='marker-info'>
+        <h2>${venue.name}</h2>
+        <p><strong>Verified Location: </strong>${venue.verified ? 'Yes' : 'No'}</p>
+        <p><strong>tip count: </strong>${venue.stats.tipCount}</p>
+        <p>${venue.rating ? '<strong>Rating: </strong>'+ venue.rating: ''}</p>
+        <p><a href='${venue.canonicalUrl}' target='_blank'>Read more</a></p>
+        </div>`)
+      })
+      })
+      .catch((err) => {
+        self.state.infoWindow.setContent('Sorry data cannot be loaded :(')
+        console.log(err)
+      })
+  }
   closeInfoWindow = () => {
     if (this.state.prevMarker) {
       this.state.prevMarker.setAnimation(null)
@@ -111,26 +139,27 @@ class Map extends Component {
     const locations = []
     
     this.state.locations.map((location) => {
-      let longname = `${location.title} - ${location.type}`
+      let longName = `${location.title} - ${location.type}`
       const marker = new window.google.maps.Marker({
         position: new window.google.maps.LatLng(location.position),
         animation: window.google.maps.Animation.DROP,
         map,
         title: location.title
       })
-    location.longname = longname
+    location.longName = longName
     location.marker = marker
     location.visible = true
     locations.push(location)
 
     marker.addListener('click', () => {
       this.openInfoWindow(marker)
+      this.getMarkerInfo(location)
     })
     })
     
     this.setState({ locations })
-
   }
+  
   loadMap () {
     if (this.props && this.props.google) {
       const map = new window.google.maps.Map(document.querySelector('#map'), {
