@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import ListLocations from './ListLocations'
+import LocationList from './LocationList'
 
 class Map extends Component {
   state = {
@@ -199,7 +199,7 @@ class Map extends Component {
     }
     return (
       <div>
-        <ListLocations locations={this.state.locations} 
+        <LocationList locations={this.state.locations} 
           openInfoWindow={this.openInfoWindow} 
           closeInfoWindow={this.closeInfoWindow} />
         <div id='map' style={style} />
