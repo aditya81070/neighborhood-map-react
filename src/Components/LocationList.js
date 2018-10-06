@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import LocationItem from './LocationItem'
+
 class LocationList extends Component {
   state = {
     query: '',
@@ -13,7 +14,7 @@ class LocationList extends Component {
     })
   }
 
-  toogleSuggestions = () => {
+  toggleSuggestions = () => {
     this.setState({
       suggestions: !this.state.suggestions
     })
@@ -46,7 +47,7 @@ class LocationList extends Component {
           <ul>
             { this.state.suggestions && locationlist }
           </ul>
-        <button className='button' onClick={() => (this.toogleSuggestions())}>Show/Hide Suggestions</button>
+        <button className='button' onClick={() => (this.toggleSuggestions())}>Show/Hide Suggestions</button>
       </div>
     )
   }
