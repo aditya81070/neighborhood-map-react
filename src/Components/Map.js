@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
 
 class Map extends Component {
+  state = {
+    map: '',
+    InfoWindow: {}
+  }
 
   componentDidMount () {
     this.loadMap()
@@ -17,6 +21,10 @@ class Map extends Component {
         mapTypeControl: false,
         zoom: 13
       })
+
+      const InfoWindow = new window.google.maps.InfoWindow({})
+
+      this.setState({ map , InfoWindow })
     }
   }
   render () {
