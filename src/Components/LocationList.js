@@ -1,12 +1,28 @@
 import React, { Component } from 'react'
-
+import LocationItem from './LocationItem'
 class LocationList extends Component {
   state = {
     query: '',
-    location: [],
+    locations: [],
     suggestions: true
   }
 
+  componentDidMount () {
+    this.setState({
+      locations: this.props.locations
+    })
+  }
+
+  // toogleSuggestions = () => {
+  //   this.setState({
+  //     suggestions: !this.state.suggestions
+  //   })
+  // }
+  toogleSuggestions = () => {
+    this.setState({
+      suggestions: !this.state.suggestions
+    })
+  }
   filterLocation = (query) => {
     this.props.closeInfoWindow()
     const locations = this.props.locations.map((location) => {
@@ -21,11 +37,17 @@ class LocationList extends Component {
   }
   
   render () {
+    const locationlist = this.state.locations.map((location) => (<LocationItem key={location.venueId}
+      openInfoWindow={this.props.openInfoWindow.bind(this)} data={location} />))
     return (
       <div className='search'>
         <input type='text' role='search' aria-labelledby='filter' id='search-field'
           value={this.state.query}
           onChange={(e) => (this.filterLocation(e.target.value))} />
+          <ul>
+            { this.state.suggestions && locationlist }
+          </ul>
+        <button className='button' onClick={() => (this.toogleSuggestions())}>Show/Hide Suggestions</button>
       </div>
     )
   }
