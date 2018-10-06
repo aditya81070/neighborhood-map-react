@@ -1,17 +1,15 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-class LocationItem extends Component {
-  render () {
-    return (
-      <li role='button' className='location-item' tabIndex='0'
-        onClick={() => {
-          this.props.openInfoWindow(this.props.data.marker)
-          this.props.getMarkerInfo(this.props.data)
-        }}>
-        {this.props.data.longName}
-      </li>
-    )
-  }
+function LocationItem (props) {
+  return (
+    <li role='button' className='location-item' tabIndex='0'
+      onClick={() => {
+        props.openInfoWindow(props.data.marker)
+        props.getMarkerInfo(props.data)
+      }}>
+      {props.data.longName}
+    </li>
+  )
 }
 
 export default LocationItem
