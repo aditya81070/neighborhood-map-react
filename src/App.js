@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { GoogleApiWrapper } from 'google-maps-react'
+import Map from './Components/Map'
 // import logo from './logo.svg'
 // import './App.css'
 
@@ -13,8 +14,7 @@ class App extends Component {
         </header>
         {
           this.props.loaded ? (
-            // <Map google={this.props.google} />
-            <div>Google map is loaded</div>
+            <Map google={this.props.google} />
           ) : (
             <div className='error-loading'>
               <p className='error-msg'>Couldn't load Google maps</p>
