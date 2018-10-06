@@ -7,7 +7,7 @@ function App (props) {
   return (
     <div className='App'>
       <header className='App-header'>
-        <h1 className='App-title'>Welcome to neighborhood map(React)</h1>
+        <h1 className='App-title'>Welcome to Neighborhood Map</h1>
       </header>
       {
         props.loaded ? (
