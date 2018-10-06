@@ -1,14 +1,12 @@
 import React from 'react'
 import { GoogleApiWrapper } from 'google-maps-react'
 import Map from './Components/Map'
-// import logo from './logo.svg'
-// import './App.css'
+import './App.css'
 
 function App (props) {
   return (
     <div className='App'>
       <header className='App-header'>
-        {/* <img src={logo} className='App-logo' alt='logo' /> */}
         <h1 className='App-title'>Welcome to neighborhood map(React)</h1>
       </header>
       {
