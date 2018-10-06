@@ -92,11 +92,19 @@ class Map extends Component {
   }
   
   openInfoWindow = (marker) => {
+    this.closeInfoWindow()
     this.state.infoWindow.open(this.state.map, marker)
-    this.state.infoWindow.setContent('something')
+    marker.setAnimation(window.google.maps.Animation.BOUNCE)
+    this.setState({ 'prevMarker': marker })
+    this.state.infoWindow.setContent('<h4>Loading Data...</h4>')
+    this.state.map.setCenter(marker.getPosition())
   }
 
-  closeInfoWindow = (marker) => {
+  closeInfoWindow = () => {
+    if (this.state.prevMarker) {
+      this.state.prevMarker.setAnimation(null)
+    }
+    this.setState({ prevMarker: ''})
     this.state.infoWindow.close()
   }
   setMarkers = (map) => {
