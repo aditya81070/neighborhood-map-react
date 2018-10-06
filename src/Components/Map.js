@@ -193,16 +193,12 @@ class Map extends Component {
     }
   }
   render () {
-    const style = {
-      width: '100%',
-      height: `${window.innerHeight}px`
-    }
     return (
-      <div>
+      <div className='main'>
         <LocationList locations={this.state.locations} 
           openInfoWindow={this.openInfoWindow} 
           closeInfoWindow={this.closeInfoWindow} getMarkerInfo={this.getMarkerInfo.bind(this)} />
-        <div id='map' style={style} />
+          <div id='map' />
       </div>
     )
   }

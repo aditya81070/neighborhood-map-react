@@ -40,7 +40,7 @@ class LocationList extends Component {
       data={location} 
       getMarkerInfo={this.props.getMarkerInfo}/>))
     return (
-      <div className='search'>
+      <div className='sidebar'>
         <input type='text' role='search' aria-labelledby='filter' id='search-field'
           value={this.state.query}
           onChange={(e) => (this.filterLocation(e.target.value))} />
