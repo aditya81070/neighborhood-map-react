@@ -38,7 +38,9 @@ class LocationList extends Component {
   
   render () {
     const locationlist = this.state.locations.map((location) => (<LocationItem key={location.venueId}
-      openInfoWindow={this.props.openInfoWindow.bind(this)} data={location} />))
+      openInfoWindow={this.props.openInfoWindow.bind(this)} 
+      data={location} 
+      getMarkerInfo={this.props.getMarkerInfo}/>))
     return (
       <div className='search'>
         <input type='text' role='search' aria-labelledby='filter' id='search-field'

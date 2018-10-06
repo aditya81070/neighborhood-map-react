@@ -201,7 +201,7 @@ class Map extends Component {
       <div>
         <LocationList locations={this.state.locations} 
           openInfoWindow={this.openInfoWindow} 
-          closeInfoWindow={this.closeInfoWindow} />
+          closeInfoWindow={this.closeInfoWindow} getMarkerInfo={this.getMarkerInfo.bind(this)} />
         <div id='map' style={style} />
       </div>
     )
