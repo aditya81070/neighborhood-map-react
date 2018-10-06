@@ -7,17 +7,12 @@ class LocationList extends Component {
     suggestions: true
   }
 
-  componentDidMount () {
+  componentWillMount () {
     this.setState({
       locations: this.props.locations
     })
   }
 
-  // toogleSuggestions = () => {
-  //   this.setState({
-  //     suggestions: !this.state.suggestions
-  //   })
-  // }
   toogleSuggestions = () => {
     this.setState({
       suggestions: !this.state.suggestions
@@ -37,7 +32,7 @@ class LocationList extends Component {
   }
   
   render () {
-    const locationlist = this.state.locations.map((location) => (<LocationItem key={location.venueId}
+    const locationlist = this.state.locations.filter((location) => location.visible).map((location) => (<LocationItem key={location.venueId}
       openInfoWindow={this.props.openInfoWindow.bind(this)} 
       data={location} 
       getMarkerInfo={this.props.getMarkerInfo}/>))
