@@ -1,11 +1,22 @@
 import React, { Component } from 'react'
 
-class ListLocations extends Component {
+class LocationList extends Component {
+  state = {
+    query: ''
+  }
+
+  filterLocation = (query) => {
+    this.setState({ query })
+  }
   render () {
     return (
-      <div>list of locations</div>
+      <div className='search'>
+        <input type='text' role='search' aria-labelledby='filter' id='search-field'
+          value={this.state.query}
+          onChange={(e) => (this.filterLocation(e.target.value))} />
+      </div>
     )
   }
 }
 
-export default ListLocations
+export default LocationList
