@@ -103,8 +103,8 @@ class Map extends Component {
 
   getMarkerInfo (location) {
     const self = this
-    const clientId = 'IVR2BCQPW0NBT0Y3L30KFVMAI0EH4Z5TT3AUHQT0P2LPRKI1'
-    const clientSecret = 'OSFARAATAMYFPG5CKJSTDECNGXKHMXUQ0IML2NHPRFOWHPJD'
+    const clientId = '5QP4COBFY03O4IO4RGHW1DC3EUAKO3FT3VY1FSVX0V5PES0K'
+    const clientSecret = 'WIH0R0GMOWQCCT2M1HD5ONXATKSCMUQSTOGO2UMRCNUE4KAR'
     const url = `https://api.foursquare.com/v2/venues/${location.venueId}?client_id=${clientId}&client_secret=${clientSecret}&v=20181006`
     fetch (url)
       .then((response) => {
