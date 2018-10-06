@@ -25,6 +25,13 @@ class Map extends Component {
       const InfoWindow = new window.google.maps.InfoWindow({})
 
       this.setState({ map , InfoWindow })
+
+      window.google.maps.event.addDomListener(window, 'resize', () => {
+        const center = map.getCenter()
+        window.google.maps.event.trigger(map, 'resize')
+        self.state.map.setCenter(center)
+      })
+      
     }
   }
   render () {
