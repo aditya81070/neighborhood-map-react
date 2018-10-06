@@ -2,12 +2,24 @@ import React, { Component } from 'react'
 
 class LocationList extends Component {
   state = {
-    query: ''
+    query: '',
+    location: [],
+    suggestions: true
   }
 
   filterLocation = (query) => {
-    this.setState({ query })
+    this.props.closeInfoWindow()
+    const locations = this.props.locations.map((location) => {
+      if (location.longName.toLowerCase().indexOf(query.toLowerCase()) !== -1) {
+        location.marker.setVisible(true)
+      } else {
+        location.marker.setVisible(false)
+      }
+      return location
+    })
+    this.setState({ query, locations })
   }
+  
   render () {
     return (
       <div className='search'>
