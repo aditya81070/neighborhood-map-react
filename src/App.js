@@ -6,6 +6,7 @@ import './App.css'
 function App (props) {
   return (
     <div className='App'>
+      <a href='#sidebar' className='skip-link'>skip to content</a>
       <header className='App-header'>
         <h1 className='App-title'>Welcome to Neighborhood Map</h1>
       </header>

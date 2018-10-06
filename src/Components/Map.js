@@ -115,13 +115,13 @@ class Map extends Component {
         response.json().then(({ response }) => {
         const { venue } = response
         self.state.infoWindow.setContent(`<div class='marker-info' tabindex=-1>
-        <h2 tabindex=1 id='venuename'>${venue.name}</h2>
+        <h2 tabindex=0 id='venuename'>${venue.name}</h2>
         <p><strong>Verified Location: </strong>${venue.verified ? 'Yes' : 'No'}</p>
         <p><strong>tip count: </strong>${venue.stats.tipCount}</p>
         <p>${venue.rating ? '<strong>Rating: </strong>'+ venue.rating: ''}</p>
         <p><a href='${venue.canonicalUrl}' target='_blank'>Read more</a></p>
         </div>`)
-        document.querySelector('#venuename').focus()
+        // document.querySelector('#venuename').focus()
       })
       })
       .catch((err) => {
