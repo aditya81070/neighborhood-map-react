@@ -23,8 +23,10 @@ class LocationList extends Component {
     const locations = this.props.locations.map((location) => {
       if (location.longName.toLowerCase().indexOf(query.toLowerCase()) !== -1) {
         location.marker.setVisible(true)
+        location.visible = true
       } else {
         location.marker.setVisible(false)
+        location.visible = false
       }
       return location
     })

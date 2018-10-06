@@ -12,7 +12,7 @@ class Map extends Component {
             'lat': 26.782285517540508,
             'lng': 75.8242433741306
           },
-          'venueId': '4c94731df7cfa1cdf617b415'
+          'venueId': '4c94731df7cfa1cdf617b415',
         },
         {
           'title': "Jaipur Exhibition & Convention Centre",
