@@ -57,7 +57,33 @@ The main concepts are given below:-
   ```bash
   $ yarn start
   ```
-* If browser not opened automatically go to [http://localhost:3000](http://localhost:3000).
+* If browser not opened automatically go to [http://localhost:3000](http://localhost:3000)
+* Now to see the functionality of service worker , build the production code:-
+  * Stop the development server using `ctrl+c`
+  * Build the production code:- 
+    * Using `npm`:-
+    ```bash
+    $ npm run build
+    ```
+    * Using `yarn`:-
+    ```bash
+    yarn build
+    ```
+  * Install `serve` package to serve production code:-
+    * Using `npm`: -
+    ```bash
+    $ npm i -g serve
+    ```
+    * Using `yarn`:-
+    ```bash
+    $ yarn global add serve
+    ```
+  * Start the production server:-
+    ```bash
+    $ serve -s build
+    ```
+  * Go to the [http://localhost:5000](http://localhost:5000)
+
 
 ## Other resources
 * [Foursquare Place API](https://developer.foursquare.com/places-api)
