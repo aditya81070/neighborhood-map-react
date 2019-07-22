@@ -2,7 +2,8 @@ import React from 'react'
 import { GoogleApiWrapper } from 'google-maps-react'
 import Map from './Components/Map'
 import './App.css'
-
+import dotenv from 'dotenv'
+dotenv.config()
 function App (props) {
   return (
     <div className='App'>
@@ -26,5 +27,5 @@ function App (props) {
 }
 
 export default GoogleApiWrapper({
-  apiKey: 'AIzaSyCEnz_Hcj3oNgadmU2OIcrMRj7LYCXgznM'
+  apiKey: process.env.REACT_APP_MAP_API_KEY
 })(App)
