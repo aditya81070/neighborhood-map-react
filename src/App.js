@@ -26,5 +26,5 @@ function App (props) {
 }
 
 export default GoogleApiWrapper({
-  apiKey: 'AIzaSyDYIakkVfbT7wU-6VOAnE9Up10NvVgfwB0'
+  apiKey: 'AIzaSyCEnz_Hcj3oNgadmU2OIcrMRj7LYCXgznM'
 })(App)
